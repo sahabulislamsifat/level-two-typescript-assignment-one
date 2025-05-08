@@ -21,8 +21,14 @@ const books = [
   { title: "Book B", rating: 3.2 },
   { title: "Book C", rating: 5.0 },
 ];
-
 filterByRating(books);
+
+function concatenateArrays<T>(...arrays: T[][]): T[] {
+  return Array.prototype.concat(...arrays);
+}
+
+concatenateArrays(["a", "b"], ["c"]);
+concatenateArrays([1, 2], [3, 4], [5]);
 
 class Vehicle {
   private make: string;
@@ -107,3 +113,18 @@ function getDayType(day: Day): string {
 }
 getDayType(Day.Monday);
 getDayType(Day.Sunday);
+
+async function squareAsync(n: number): Promise<number> {
+  return new Promise((resolve, reject) => {
+    if (n < 0) {
+      reject(new Error("Negative Number not allowed"));
+    } else {
+      setTimeout(() => {
+        resolve(n * n);
+      }, 1000);
+    }
+  });
+}
+
+squareAsync(4).then(console.log);
+squareAsync(-3).catch(console.error);
