@@ -80,5 +80,30 @@ const products = [
   { name: "Notebook", price: 25 },
   { name: "Bag", price: 50 },
 ];
-
 getMostExpensiveProduct(products);
+
+enum Day {
+  Monday,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday,
+  Sunday,
+}
+
+function getDayType(day: Day): string {
+  if (
+    day === Day.Monday ||
+    day === Day.Tuesday ||
+    day === Day.Wednesday ||
+    day == Day.Thursday ||
+    day === Day.Friday
+  ) {
+    return "Weekday";
+  } else {
+    return "Weekend";
+  }
+}
+getDayType(Day.Monday);
+getDayType(Day.Sunday);
